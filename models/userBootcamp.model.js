@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.config.js";
 
-export const UserBootcamp = sequelize.define(
+const UserBootcamp = sequelize.define(
   "user_bootcamp",
   {
     id: {
@@ -24,3 +24,5 @@ export const UserBootcamp = sequelize.define(
     timestamps: true,
   }
 );
+
+export default UserBootcamp;

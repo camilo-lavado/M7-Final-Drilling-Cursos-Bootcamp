@@ -1,8 +1,14 @@
 import sequelize from "./config/db.config.js";
 import app from "./app.js";
-import "./models/user.model.js";
-import "./models/bootcamp.model.js";
-import "./models/userBootcamp.model.js";
+import User from "./models/user.model.js";
+import Bootcamp from "./models/bootcamp.model.js";
+import UserBootcamp from "./models/userBootcamp.model.js"; // Agrega esta línea para importar el modelo de la tabla intermedia.
+
+// Define las relaciones entre los modelos si es necesario.
+User.belongsToMany(Bootcamp, { through: UserBootcamp });
+Bootcamp.belongsToMany(User, { through: UserBootcamp });
+
+//Definimos las relaciones entre tablas.
 
 // Ejecutamos la función de prueba de conexión a la base de datos.
 async function conectarYCrear() {

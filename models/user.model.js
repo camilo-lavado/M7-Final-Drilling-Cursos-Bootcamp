@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize"; // importar el tipo de dato para la columna
 import sequelize from "../config/db.config.js"; // importar la conexion a la base de datos
 
-export const User = sequelize.define("User", {
+const User = sequelize.define("user", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -25,3 +25,5 @@ export const User = sequelize.define("User", {
     },
   },
 });
+
+export default User;

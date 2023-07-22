@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.config.js";
 
-export const Bootcamp = sequelize.define("Bootcamp", {
+const Bootcamp = sequelize.define("bootcamp", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -25,3 +25,5 @@ export const Bootcamp = sequelize.define("Bootcamp", {
     allowNull: false,
   },
 });
+
+export default Bootcamp;
