@@ -1,13 +1,18 @@
-import { DataType } from "sequelize";
-import sequelize from "../database/connection";
+import { DataTypes } from "sequelize";
+import sequelize from "../config/db.config.js";
 
-const Bootcamp = sequelize.define("Bootcamp", {
+export const Bootcamp = sequelize.define("Bootcamp", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   title: {
-    type: DataType.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   cue: {
-    type: DataType.INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: false,
     validate: {
       isInt: true,
@@ -16,9 +21,7 @@ const Bootcamp = sequelize.define("Bootcamp", {
     },
   },
   description: {
-    type: DataType.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
 });
-
-export default Bootcamp;
