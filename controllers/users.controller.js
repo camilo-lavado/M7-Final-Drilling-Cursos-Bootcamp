@@ -22,19 +22,48 @@ const createUser = async (req, res) => {
 };
 
 const findUserById = async (req, res) => {
-  res.send("Obteniendo un User por id");
+  try {
+    const { id } = req.params;
+    const user = await User.findByPk(id);
+    res.json(user);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const findAll = async (req, res) => {
-  res.send("Obteniendo los getUsers");
+  try {
+    const users = await User.findAll();
+    res.json(users);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const updateUserById = async (req, res) => {
-  res.send("Actualizando un User por id");
+  try {
+    const { id } = req.params;
+    const { firstName, lastName, email } = req.body;
+    const user = await User.findByPk(id);
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const deleteUserById = async (req, res) => {
-  res.send("Eliminando un User por id");
+  try {
+    const { id } = req.params;
+    const user = await User.findByPk(id);
+    await user.destroy();
+    res.json({ message: "Usuario eliminado" });
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 export default {

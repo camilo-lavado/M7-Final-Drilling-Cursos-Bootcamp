@@ -1,6 +1,10 @@
 import sequelize from "./config/db.config.js";
-import app from "./app.js";
 import models from "./models/index.js";
+import express from "express";
+import bootcampsRoutes from "./routes/bootcamps.routes.js";
+import usersRoutes from "./routes/users.routes.js";
+
+const app = express();
 
 const User = models.User;
 const Bootcamp = models.Bootcamp;
@@ -24,6 +28,10 @@ async function conectarYCrear() {
 
 conectarYCrear();
 
-/*app.get("/", (req, res) => {
-  res.send("Hola mundo desde express");
-});*/
+//Midlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//Rutas
+app.use("/api", bootcampsRoutes);
+app.use("/api", usersRoutes);

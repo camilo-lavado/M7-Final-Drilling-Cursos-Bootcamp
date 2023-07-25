@@ -21,24 +21,66 @@ const createBootcamp = async (req, res) => {
 };
 
 const addUser = async (req, res) => {
-  res.send("Agregando un User al Bootcamp");
+  try {
+    const { userId, bootcampId } = req.body;
+    const bootcamp = await Bootcamp.findByPk(bootcampId);
+    const user = await User.findByPk(userId);
+    await bootcamp.addUser(user);
+    res.json({ message: "Usuario agregado al Bootcamp" });
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const findById = async (req, res) => {
-  res.send("Obteniendo un Bootcamp por id");
+  try {
+    const { id } = req.params;
+    const bootcamp = await Bootcamp.findByPk(id);
+    res.json(bootcamp);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const findAll = async (req, res) => {
-  res.send("Obteniendo los getBootcamp");
+  try {
+    const bootcamps = await Bootcamp.findAll();
+    res.json(bootcamps);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const getBootcamps = async (req, res) => {
-  res.send("Obteniendo los getBootcamp");
+  try {
+    const bootcamps = await Bootcamp.findAll({
+      include: [
+        {
+          model: User,
+          as: "users",
+          attributes: ["id", "firstName", "lastName", "email"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
+    res.json(bootcamps);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 /*No es requerido*/
 const deleteBootcampById = async (req, res) => {
-  res.send("Eliminando un Bootcamp por id");
+  try {
+    const { id } = req.params;
+    const bootcamp = await Bootcamp.findByPk(id);
+    await bootcamp.destroy();
+    res.json({ message: "Bootcamp eliminado" });
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 export default {
