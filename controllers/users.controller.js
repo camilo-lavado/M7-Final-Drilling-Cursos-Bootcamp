@@ -8,8 +8,17 @@ import User from "../models/user.model.js";
 • Eliminar un usuario por Id llamado deleteUserById.*/
 
 const createUser = async (req, res) => {
-  res.send("Creando un User");
-  console.log(req.body);
+  try {
+    const { firstName, lastName, email } = req.body;
+    const newUser = await User.create({
+      firstName,
+      lastName,
+      email,
+    });
+    res.json(newUser);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const findUserById = async (req, res) => {
