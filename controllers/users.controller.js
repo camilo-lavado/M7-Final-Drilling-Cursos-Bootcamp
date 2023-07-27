@@ -25,7 +25,15 @@ const findUserById = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findByPk(id);
-    res.json(user);
+    if (!user) {
+      res.json({ error: "Usuario no encontrado" });
+    }
+    if (user) {
+      res.json({
+        message: "Usuario encontrado:",
+        user,
+      });
+    }
   } catch (error) {
     res.json(error);
   }
@@ -49,9 +57,14 @@ const updateUserById = async (req, res) => {
     user.lastName = lastName;
     user.email = email;
     await user.save();
-    res.json(user);
+    res.json({
+      message: "Usuario actualizado",
+      user,
+    });
   } catch (error) {
-    res.json(error);
+    res.json({
+      error: "Usuario no encontrado",
+    });
   }
 };
 
@@ -62,7 +75,9 @@ const deleteUserById = async (req, res) => {
     await user.destroy();
     res.json({ message: "Usuario eliminado" });
   } catch (error) {
-    res.json(error);
+    res.json({
+      error: "Usuario no encontrado",
+    });
   }
 };
 

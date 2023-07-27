@@ -14,9 +14,15 @@ const createBootcamp = async (req, res) => {
       cue,
       description,
     });
-    res.json(newBootcamp);
+    res.json({
+      message: "Bootcamp creado",
+      newBootcamp,
+    });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudo crear el Bootcamp",
+      error,
+    });
   }
 };
 
@@ -26,9 +32,12 @@ const addUser = async (req, res) => {
     const bootcamp = await Bootcamp.findByPk(bootcampId);
     const user = await User.findByPk(userId);
     await bootcamp.addUser(user);
-    res.json({ message: "Usuario agregado al Bootcamp" });
+    res.json({ message: "Usuario agregado al Bootcamp", bootcamp });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudo agregar el usuario al Bootcamp",
+      error,
+    });
   }
 };
 
@@ -36,18 +45,30 @@ const findById = async (req, res) => {
   try {
     const { id } = req.params;
     const bootcamp = await Bootcamp.findByPk(id);
-    res.json(bootcamp);
+    res.json({
+      message: "Bootcamp encontrado:",
+      bootcamp,
+    });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudo encontrar el Bootcamp",
+      error,
+    });
   }
 };
 
 const findAll = async (req, res) => {
   try {
     const bootcamps = await Bootcamp.findAll();
-    res.json(bootcamps);
+    res.json({
+      message: "Bootcamps encontrados:",
+      bootcamps,
+    });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudieron encontrar los Bootcamps",
+      error,
+    });
   }
 };
 
@@ -65,9 +86,15 @@ const getBootcamps = async (req, res) => {
         },
       ],
     });
-    res.json(bootcamps);
+    res.json({
+      message: "Bootcamps encontrados:",
+      bootcamps,
+    });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudieron encontrar los Bootcamps",
+      error,
+    });
   }
 };
 
@@ -79,7 +106,10 @@ const deleteBootcampById = async (req, res) => {
     await bootcamp.destroy();
     res.json({ message: "Bootcamp eliminado" });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudo eliminar el Bootcamp",
+      error,
+    });
   }
 };
 
