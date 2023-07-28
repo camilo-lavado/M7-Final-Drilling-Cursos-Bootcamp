@@ -34,6 +34,9 @@ const addUser = async (req, res) => {
     const bootcamp = await Bootcamp.findByPk(id);
     const user = await User.findByPk(userId);
     await bootcamp.addUser(user);
+    console.log("**************************************************");
+    console.log("Agregado el usuario id=" + userId + " al bootcamp id=" + id);
+    console.log("**************************************************\n");
     res.json({
       message: "Usuario agregado al Bootcamp",
       bootcamp,
