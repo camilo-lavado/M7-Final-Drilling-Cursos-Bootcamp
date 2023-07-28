@@ -21,7 +21,7 @@ async function conectarYCrear() {
   } catch (error) {
     console.error("No se pudo conectar a la base de datos:\n", error);
   } finally {
-    await sequelize.sync({ force: true }); //alter true
+    await sequelize.sync({ alter: true }); //alter true
     console.log("\nBase de datos sincronizada.\n");
   }
 }

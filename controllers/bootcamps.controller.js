@@ -1,4 +1,5 @@
 import Bootcamp from "../models/bootcamp.model.js";
+import User from "../models/user.model.js";
 
 /*Para el bootcamp, construir los siguientes controladores:
 • Crear y guardar un nuevo Bootcamp llamado createBootcamp.
@@ -28,14 +29,18 @@ const createBootcamp = async (req, res) => {
 
 const addUser = async (req, res) => {
   try {
-    const { userId, bootcampId } = req.body;
-    const bootcamp = await Bootcamp.findByPk(bootcampId);
+    const { id } = req.params;
+    const { userId } = req.body;
+    const bootcamp = await Bootcamp.findByPk(id);
     const user = await User.findByPk(userId);
     await bootcamp.addUser(user);
-    res.json({ message: "Usuario agregado al Bootcamp", bootcamp });
+    res.json({
+      message: "Usuario agregado al Bootcamp",
+      bootcamp,
+    });
   } catch (error) {
     res.json({
-      message: "No se pudo agregar el usuario al Bootcamp",
+      message: "No se pudo agregar el Usuario al Bootcamp",
       error,
     });
   }
@@ -45,10 +50,13 @@ const findById = async (req, res) => {
   try {
     const { id } = req.params;
     const bootcamp = await Bootcamp.findByPk(id);
-    res.json({
-      message: "Bootcamp encontrado:",
-      bootcamp,
-    });
+    if (!bootcamp) {
+      res.json({ error: "Bootcamp no encontrado" });
+    } else
+      res.json({
+        message: "Bootcamp encontrado:",
+        bootcamp,
+      });
   } catch (error) {
     res.json({
       message: "No se pudo encontrar el Bootcamp",

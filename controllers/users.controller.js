@@ -15,9 +15,15 @@ const createUser = async (req, res) => {
       lastName,
       email,
     });
-    res.json(newUser);
+    res.json({
+      message: "Se ha creado el usuario:",
+      newUser,
+    });
   } catch (error) {
-    res.json(error);
+    res.json({
+      message: "No se pudo crear el usuario",
+      error,
+    });
   }
 };
 
@@ -42,7 +48,10 @@ const findUserById = async (req, res) => {
 const findAll = async (req, res) => {
   try {
     const users = await User.findAll();
-    res.json(users);
+    res.json({
+      message: "Todos los usuarios:",
+      users,
+    });
   } catch (error) {
     res.json(error);
   }
