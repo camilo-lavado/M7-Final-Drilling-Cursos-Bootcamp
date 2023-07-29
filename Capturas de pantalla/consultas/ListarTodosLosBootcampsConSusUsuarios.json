@@ -1,0 +1,71 @@
+{
+    "message": "Bootcamps encontrados:",
+    "bootcamps": [
+        {
+            "id": 1,
+            "title": "Introduciendo El Bootcamp De React.",
+            "cue": 10,
+            "description": "React es la librería más usada en JavaScript para el desarrollo de interfaces.",
+            "createdAt": "2023-07-28T01:40:17.128Z",
+            "updatedAt": "2023-07-28T01:40:17.128Z",
+            "users": [
+                {
+                    "id": 1,
+                    "firstName": "Mateo",
+                    "lastName": "Díaz",
+                    "email": "mateo.diaz@correo.com"
+                },
+                {
+                    "id": 2,
+                    "firstName": "Santiago",
+                    "lastName": "Mejías",
+                    "email": "santiago.mejias@correo.com"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Bootcamp Desarrollo Web Full Stack.",
+            "cue": 12,
+            "description": "Crearás aplicaciones web utilizando las tecnologías y lenguajes más actuales y populares, como: JavaScript, nodeJS, Angular, MongoDB, ExpressJS.",
+            "createdAt": "2023-07-28T23:41:13.954Z",
+            "updatedAt": "2023-07-28T23:41:13.954Z",
+            "users": [
+                {
+                    "id": 1,
+                    "firstName": "Mateo",
+                    "lastName": "Díaz",
+                    "email": "mateo.diaz@correo.com"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Bootcamp Big Data, Inteligencia Artificial & Machine Learning.",
+            "cue": 18,
+            "description": "Domina Data Science, y todo el ecosistema de lenguajes y herramientas de Big Data, e intégralos con modelos avanzados de Artificial Intelligence y Machine Learning.",
+            "createdAt": "2023-07-28T23:42:24.977Z",
+            "updatedAt": "2023-07-28T23:42:24.977Z",
+            "users": [
+                {
+                    "id": 1,
+                    "firstName": "Mateo",
+                    "lastName": "Díaz",
+                    "email": "mateo.diaz@correo.com"
+                },
+                {
+                    "id": 2,
+                    "firstName": "Santiago",
+                    "lastName": "Mejías",
+                    "email": "santiago.mejias@correo.com"
+                },
+                {
+                    "id": 3,
+                    "firstName": "Lucas",
+                    "lastName": "Rojas",
+                    "email": "lucas.rojas@correo.com"
+                }
+            ]
+        }
+    ]
+}

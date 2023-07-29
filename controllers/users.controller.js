@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import Bootcamp from "../models/bootcamp.model.js";
 
 /*Para el usuario, construir los siguientes controladores:
 • Crear y guardar usuarios llamado createUser.
@@ -30,11 +31,16 @@ const createUser = async (req, res) => {
 const findUserById = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      include: {
+        model: Bootcamp,
+        as: "bootcamps",
+        attributes: ["id", "title", "cue", "description"],
+      },
+    });
     if (!user) {
       res.json({ error: "Usuario no encontrado" });
-    }
-    if (user) {
+    } else {
       res.json({
         message: "Usuario encontrado:",
         user,
@@ -47,7 +53,14 @@ const findUserById = async (req, res) => {
 
 const findAll = async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      include: {
+        model: Bootcamp,
+        as: "bootcamps",
+        attributes: ["id", "title", "cue", "description"],
+      },
+    });
+
     res.json({
       message: "Todos los usuarios:",
       users,

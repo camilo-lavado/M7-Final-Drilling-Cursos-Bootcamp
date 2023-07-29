@@ -39,6 +39,7 @@ const addUser = async (req, res) => {
     console.log("**************************************************\n");
     res.json({
       message: "Usuario agregado al Bootcamp",
+      user,
       bootcamp,
     });
   } catch (error) {
@@ -52,14 +53,22 @@ const addUser = async (req, res) => {
 const findById = async (req, res) => {
   try {
     const { id } = req.params;
-    const bootcamp = await Bootcamp.findByPk(id);
+    const bootcamp = await Bootcamp.findByPk(id, {
+      include: {
+        model: User,
+        as: "users",
+        attributes: ["id", "firstName", "lastName", "email"],
+      },
+    });
+
     if (!bootcamp) {
       res.json({ error: "Bootcamp no encontrado" });
-    } else
+    } else {
       res.json({
         message: "Bootcamp encontrado:",
         bootcamp,
       });
+    }
   } catch (error) {
     res.json({
       message: "No se pudo encontrar el Bootcamp",
@@ -70,7 +79,14 @@ const findById = async (req, res) => {
 
 const findAll = async (req, res) => {
   try {
-    const bootcamps = await Bootcamp.findAll();
+    const bootcamps = await Bootcamp.findAll({
+      include: {
+        model: User,
+        as: "users",
+        attributes: ["id", "firstName", "lastName", "email"],
+      },
+    });
+
     res.json({
       message: "Bootcamps encontrados:",
       bootcamps,

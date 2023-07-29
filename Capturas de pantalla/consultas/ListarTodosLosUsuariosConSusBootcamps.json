@@ -1,0 +1,116 @@
+{
+    "message": "Todos los usuarios:",
+    "users": [
+        {
+            "id": 1,
+            "firstName": "Mateo",
+            "lastName": "Díaz",
+            "email": "mateo.diaz@correo.com",
+            "createdAt": "2023-07-28T01:34:56.578Z",
+            "updatedAt": "2023-07-28T01:34:56.578Z",
+            "bootcamps": [
+                {
+                    "id": 1,
+                    "title": "Introduciendo El Bootcamp De React.",
+                    "cue": 10,
+                    "description": "React es la librería más usada en JavaScript para el desarrollo de interfaces.",
+                    "user_bootcamp": {
+                        "createdAt": "2023-07-28T23:46:08.494Z",
+                        "updatedAt": "2023-07-28T23:46:08.494Z",
+                        "userId": 1,
+                        "bootcampId": 1
+                    }
+                },
+                {
+                    "id": 2,
+                    "title": "Bootcamp Desarrollo Web Full Stack.",
+                    "cue": 12,
+                    "description": "Crearás aplicaciones web utilizando las tecnologías y lenguajes más actuales y populares, como: JavaScript, nodeJS, Angular, MongoDB, ExpressJS.",
+                    "user_bootcamp": {
+                        "createdAt": "2023-07-28T23:49:10.736Z",
+                        "updatedAt": "2023-07-28T23:49:10.736Z",
+                        "userId": 1,
+                        "bootcampId": 2
+                    }
+                },
+                {
+                    "id": 3,
+                    "title": "Bootcamp Big Data, Inteligencia Artificial & Machine Learning.",
+                    "cue": 18,
+                    "description": "Domina Data Science, y todo el ecosistema de lenguajes y herramientas de Big Data, e intégralos con modelos avanzados de Artificial Intelligence y Machine Learning.",
+                    "user_bootcamp": {
+                        "createdAt": "2023-07-28T23:50:51.175Z",
+                        "updatedAt": "2023-07-28T23:50:51.175Z",
+                        "userId": 1,
+                        "bootcampId": 3
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "firstName": "Santiago",
+            "lastName": "Mejías",
+            "email": "santiago.mejias@correo.com",
+            "createdAt": "2023-07-28T01:35:54.353Z",
+            "updatedAt": "2023-07-28T01:35:54.353Z",
+            "bootcamps": [
+                {
+                    "id": 1,
+                    "title": "Introduciendo El Bootcamp De React.",
+                    "cue": 10,
+                    "description": "React es la librería más usada en JavaScript para el desarrollo de interfaces.",
+                    "user_bootcamp": {
+                        "createdAt": "2023-07-28T23:47:46.312Z",
+                        "updatedAt": "2023-07-28T23:47:46.312Z",
+                        "userId": 2,
+                        "bootcampId": 1
+                    }
+                },
+                {
+                    "id": 3,
+                    "title": "Bootcamp Big Data, Inteligencia Artificial & Machine Learning.",
+                    "cue": 18,
+                    "description": "Domina Data Science, y todo el ecosistema de lenguajes y herramientas de Big Data, e intégralos con modelos avanzados de Artificial Intelligence y Machine Learning.",
+                    "user_bootcamp": {
+                        "createdAt": "2023-07-28T23:51:28.766Z",
+                        "updatedAt": "2023-07-28T23:51:28.766Z",
+                        "userId": 2,
+                        "bootcampId": 3
+                    }
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "firstName": "Lucas",
+            "lastName": "Rojas",
+            "email": "lucas.rojas@correo.com",
+            "createdAt": "2023-07-28T01:36:29.834Z",
+            "updatedAt": "2023-07-28T01:36:29.834Z",
+            "bootcamps": [
+                {
+                    "id": 3,
+                    "title": "Bootcamp Big Data, Inteligencia Artificial & Machine Learning.",
+                    "cue": 18,
+                    "description": "Domina Data Science, y todo el ecosistema de lenguajes y herramientas de Big Data, e intégralos con modelos avanzados de Artificial Intelligence y Machine Learning.",
+                    "user_bootcamp": {
+                        "createdAt": "2023-07-28T23:51:56.974Z",
+                        "updatedAt": "2023-07-28T23:51:56.974Z",
+                        "userId": 3,
+                        "bootcampId": 3
+                    }
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "firstName": "Facundo",
+            "lastName": "Fernandez",
+            "email": "facundo.fernandez@correo.com",
+            "createdAt": "2023-07-28T01:37:45.818Z",
+            "updatedAt": "2023-07-28T01:37:45.818Z",
+            "bootcamps": []
+        }
+    ]
+}

@@ -17,7 +17,7 @@ const Bootcamp = sequelize.define("bootcamp", {
     validate: {
       isInt: true,
       min: 5,
-      max: 10,
+      max: 20,
     },
   },
   description: {
